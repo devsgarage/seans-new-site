@@ -14,6 +14,6 @@ pagination:
     <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
     <p>{{ post.summary }}</p>
 
-    <a href="{{ post.slug | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>
+    <a href="/blog/{{ post.slug | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>
   </article>
 {% endfor %}
