@@ -1,0 +1,8 @@
+---
+  layout: base-layout
+---
+<article>
+  <h1>{{ blogpost.title }}</h1> 
+  <time datetime="{{ blogpost.date | dateIso }}">{{ blogpost.date | dateReadable }}</time> 
+  {{ content | safe }}
+</article>

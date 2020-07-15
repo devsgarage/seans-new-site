@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>Eleventy Blog</title> 
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" async=""></script>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: ['Pontano+Sans::latin'] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })(); 
+  </script>
+</head> 
+<body>
+  <div class="main">
+    <header class="header">
+        <div class="header-content">
+          <div>
+            <p class="header-primary">Sean Whitesell</p>
+            <p class="header-secondary">Cloud Architect, Microsoft MVP, ASP Insider, and User Group Leader</p>
+            </div>
+        </div>
+    </header> 
+    <main> 
+        <nav>          
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+        {{ content | safe }}
+    </main> 
+    <footer>Site Footer</footer> 
+  </div>
+</body> 
+</html>

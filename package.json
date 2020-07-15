@@ -1,0 +1,21 @@
+{
+  "name": "seans-new-site",
+  "version": "1.0.0",
+  "description": "Sean Whitesell",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "moment": "^2.27.0"
+  },
+  "dependencies": {
+    "@kentico/kontent-delivery": "^9.1.1",
+    "rxjs": "^6.5.5"
+  }
+}

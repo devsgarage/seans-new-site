@@ -1,0 +1,17 @@
+---
+pagination:
+  data: blogposts
+  size: 1
+  alias: blogpost
+permalink: blog/{{ blogpost.slug }}/index.html
+layout: post-layout
+---
+
+<p>{{ blogpost.summary }}</p>
+<p>{{ blogpost.body | safe }}</p>
+
+
+
+
+
+  
