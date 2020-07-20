@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "sourcebit-target-hugo": "file:../sourcebit-target-eleventy"
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^9.1.1",
     "@kentico/sourcebit-source-kontent": "^0.3.0",
     "rxjs": "^6.5.5",
-    "sourcebit": "^0.9.0",
-    "sourcebit-target-hugo": "file:../sourcebit-target-eleventy"
+    "sourcebit": "^0.9.0"
   },
   "repository": {
     "type": "git",
