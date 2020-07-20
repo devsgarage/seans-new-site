@@ -1,0 +1,15 @@
+--- 
+pagination:
+  data: data.about
+  size: 1
+permalink: /About/index.html
+layout: base-layout.njk 
+--- 
+
+{% for about in data.about %}
+  <article>
+    <div class="pants">
+      {{ about.content | safe }}
+    </div>
+  </article>
+{% endfor %}

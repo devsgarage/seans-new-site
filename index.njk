@@ -1,17 +1,16 @@
 ---
 layout: base-layout.njk
 pagination:
-  data: blogposts
+  data: data
   size: 10
   reverse: true
-  alias: posts
 ---
-{% for post in posts %}
+{% for post in data.blog_post %}
   <article>
     <p class="post-title">
       <a href="/blog/{{ post.slug | url }}">{{ post.title }}</a>
     </p>
-    <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+    <time datetime="{{ post.__metadata.createdAt | dateIso }}">{{ post.__metadata.createdAt | dateReadable }}</time>
     <p>{{ post.summary }}</p>
 
     <a href="/blog/{{ post.slug | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>

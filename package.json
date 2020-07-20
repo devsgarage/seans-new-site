@@ -16,6 +16,18 @@
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^9.1.1",
-    "rxjs": "^6.5.5"
-  }
+    "@kentico/sourcebit-source-kontent": "^0.3.0",
+    "rxjs": "^6.5.5",
+    "sourcebit": "^0.9.0",
+    "sourcebit-target-hugo": "file:../sourcebit-target-eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devsgarage/seans-new-site.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/devsgarage/seans-new-site/issues"
+  },
+  "homepage": "https://github.com/devsgarage/seans-new-site#readme"
 }
