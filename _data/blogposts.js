@@ -8,10 +8,6 @@ const SourcebitConfig = require('../sourcebit');
 
 async function getAllBlogPosts2 (){
     const data = await Sourcebit.fetch(SourcebitConfig)
-
-    console.log(data)
-  
-
     var results = await deliveryClient.items()
         .type('blog_post')
         .toPromise(); 
@@ -48,9 +44,7 @@ async function getAllBlogPosts (){
             body: item.body
           };
         })
-      }
-
-    console.log(blogpostsFormatted)
+      }   
     
     return blogpostsFormatted;
 }

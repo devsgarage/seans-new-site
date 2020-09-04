@@ -1,0 +1,124 @@
+---
+layout: base-layout.njk
+pagination:
+    data: data
+    size: 4000
+permalink: /search/index.html
+---
+    <script type="text/javascript" src="https://unpkg.com/rxjs@6.6.2/bundles/rxjs.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@kentico/kontent-delivery/_bundles/kontent-delivery.browser.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const getSearchResults = async function(searchText){
+        let response = await axios('http://localhost:7071/api/SearchFunction?search='+searchText);
+        console.log(response.data);
+        return response.data;
+    }
+
+    const getResultsFromKontent = async function(results){
+        let ids = [];
+        results.forEach(function(item){
+            ids.push(item.id);
+        })
+        var deliveryClient = new kontentDelivery.DeliveryClient({
+                projectId: '6658cbe8-5978-0046-f871-adf81a715540'
+            });
+
+        deliveryClient.items()
+            .type('blog_post')
+            .inFilter('system.id', ids)
+            .toObservable()
+            .subscribe(response => {
+                if (response.isEmpty){
+                    console.log(response);                    
+                } else {
+                    console.log(response.items);
+                    let tag_id = document.getElementById('searchResultsContainer');
+                    
+                    response.items.forEach(function(item) {
+                        //let newNode = document.createElement('p');                        
+                        //newNode.appendChild(document.createTextNode(item.title.value));
+                        //tag_id.appendChild(newNode);
+                        let newArticle = getArticleHTML(item);
+                        tag_id.appendChild(newArticle);
+                    });
+                    
+                    
+                }
+            });
+    }
+
+    const getArticleHTML = function(post){
+        /*
+        <article>
+            <p class="post-title">
+            <a href="/blog/{{ post.slug | url }}">{{ post.title }}</a>
+            </p>
+            <time datetime="{{ post.__metadata.createdAt | dateIso }}">{{ post.__metadata.createdAt | dateReadable }}</time>
+            <p>{{ post.summary }}</p>
+
+            <a href="/blog/{{ post.slug | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>
+        </article>
+        */
+        let article = document.createElement('article');
+
+        //Title
+        let titleContainer = document.createElement('p');
+        let titleAnchor = document.createElement('a');        
+        let title = document.createTextNode(post.title.value);        
+        
+        titleAnchor.appendChild(title);
+        titleAnchor.href = '/blog/'+ post.slug.value;
+        titleContainer.appendChild(titleAnchor);
+
+        //time
+        let timeContainer = document.createElement('time');
+        let timeText = document.createTextNode(post.created_date.rawData.value);
+        timeContainer.datetime = post.created_date.value;
+        timeContainer.appendChild(timeText);
+
+        //summary
+        let summaryContainer = document.createElement('p');
+        let summaryText = document.createTextNode(post.summary.value);
+        summaryContainer.appendChild(summaryText);
+
+        //read more
+        let readMoreAnchor = document.createElement('a');        
+        readMoreAnchor.href = '/blog/'+ post.slug.value;
+        let readMoreText = document.createTextNode('Read more');
+        readMoreAnchor.appendChild(readMoreText);
+
+        article.appendChild(titleContainer);
+        article.appendChild(timeContainer);
+        article.appendChild(summaryContainer);
+        article.appendChild(readMoreAnchor);
+
+        return article;
+    }
+    
+    const noResults = function(searchTerm) {
+        let tag_id = document.getElementById('searchResultsContainer');
+        let newNode = document.createElement('p');
+        newNode.appendChild(document.createTextNode(`No items found for search term '` + searchTerm + `'`));
+        tag_id.appendChild(newNode);
+    }
+
+    const search = async function(searchTerm){
+        let results = await getSearchResults(searchTerm);
+        if (results.length <= 0) {
+            noResults(searchTerm);
+        }
+        else {
+            await getResultsFromKontent(results);
+        }
+    }   
+    
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("s")) {
+        let searchTerm = urlParams.get("s");
+        console.log(searchTerm);
+        search(searchTerm);  
+    }
+</script>
+<div id="searchResultsContainer">
+</div>

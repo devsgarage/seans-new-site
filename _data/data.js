@@ -11,7 +11,6 @@ async function getAllData (){
         dataByModelType[object.__metadata.modelName].push(object);
     });
 
-    console.log(dataByModelType);
     return dataByModelType;
 }
 

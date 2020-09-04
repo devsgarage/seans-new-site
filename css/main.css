@@ -45,15 +45,19 @@ body {
 }
 
 nav {
+    display: flex;
     background-color: black;
     color: white; 
-    padding: .5em 1em;
+    height: 2em;
 }
 
 nav a {
+    display: flex;
     color: white;
     text-decoration: none;
     padding-right: 1em;
+    padding-left: 1em;
+    align-items: center;
 }
 
 article {
@@ -74,4 +78,39 @@ article {
 time {
     font-size: 12px;
     font-style: italic;
+}
+
+.speaking_engagement .title {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.speaking_engagement .location {
+    margin: 0px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.speaking_engagement .date {
+    margin: 0px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+footer {
+    padding: 1em 1em;
+    background-color: black;
+    color: white;
+}
+
+.active {
+    background-color: white;
+    color: black;
+}
+
+.search_bar {
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-align: right;
 }

@@ -14,6 +14,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
 
+  eleventyConfig.addNunjucksShortcode('getMyDate', (date1, date2) => getFormattedDate(date1, date2));
+
   eleventyConfig.addPassthroughCopy('css');
   eleventyConfig.addPassthroughCopy('assets');
 };
@@ -45,3 +47,10 @@ function extractExcerpt(article) {
    
     return excerpt;
   }
+
+function getFormattedDate (date1, date2){  
+  if (date1 === date2)
+  return moment(date1).utc().format('LL');
+  else
+  return moment(date1).utc().format('MMMM DD') + ' - ' + moment(date2).utc().format('DD, YYYY');
+}

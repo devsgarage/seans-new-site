@@ -18,10 +18,22 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(wf, s);
     })(); 
+
+    document.addEventListener("DOMContentLoaded", function(){
+  // Handler when the DOM is fully loaded
+      var a = document.getElementById('newsearch');
+      a.addEventListener('submit',function(e) {
+        e.preventDefault();
+        var b = document.getElementById('searchInput').value;
+        window.location.href = 'search?s='+b;
+      });
+    });
+    
   </script>
 </head> 
 <body>
   <div class="main">
+    <form id="newsearch" class="search_bar"><input id="searchInput" placeholder="Search"></input></form>
     <header class="header">
         <div class="header-content">
           <div>
@@ -32,8 +44,9 @@
     </header> 
     <main> 
         <nav>          
-            <a href="/">Home</a>
-            <a href="/About">About</a>
+            <a class="{% if '/home' in page.url %}active{% endif %}" href="/">Home</a>
+            <a class="{% if '/About' in page.url %}active{% endif %}" href="/About">About</a>
+            <a class="{% if '/presentations' in page.url %}active{% endif %}" href="/presentations">Presentations</a>
         </nav>
         {{ content | safe }}
     </main> 

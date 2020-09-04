@@ -1,0 +1,22 @@
+---
+layout: base-layout.njk
+pagination:
+    data: data
+    size: 100
+permalink: /presentations/index.html
+---
+<article>
+<div class="pants">
+<h2>Presentations</h2>
+<ul>
+{% for se in data.speaking_engagement %}
+<li>
+    <div class="speaking_engagement">
+        <p class="title">{{ se.name_of_event }}</p>
+        <span class="location">{{ se.location }}, <text class="date"> {% getMyDate se.start_date_of_event, se.end_date_of_event %}</text></span>
+    </div>
+</li>
+{% endfor %}
+</ul>
+</div>
+</article>
