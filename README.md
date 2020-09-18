@@ -4,8 +4,8 @@
 The site is currently built with 11ty and uses Kentico Kontent as it's headless CMS to provide content (blogs, events, etc.)
 
 #Git 'er done
-## Search bar
-- needs to use base url
+## Search bar 
+- ~~needs to use base url~~
 ## Search Page
 - needing spinning circle of death (loading spinner)
 - searching from Search page doesn't go to correct URL
@@ -25,5 +25,10 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 ## Navigation styling
 - highlight current page... maybe
 - hover styling
+## Sourcebit Plugin
+- Get it published... RYAN
+## Fellow Streamers Page
+- need one
+- like https://livecoders.dev/members
 
   
