@@ -7,8 +7,8 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 ## Search bar 
 - ~~needs to use base url~~
 ## Search Page
-- needing spinning circle of death (loading spinner)
-- searching from Search page doesn't go to correct URL
+- ~~needing spinning circle of death (loading spinner)~~
+- ~~searching from Search page doesn't go to correct URL~~
 - styling of cards to match home page
 ## Deploy search function to Azure
 ## Page not found

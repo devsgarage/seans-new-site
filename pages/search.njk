@@ -103,7 +103,18 @@ permalink: /search/index.html
         tag_id.appendChild(newNode);
     }
 
-    const search = async function(searchTerm){
+    const showLoader = function(){
+        let loaderBackground = document.getElementById('loaderBackground');
+        loaderBackground.style.display = 'flex';
+    }
+
+    const hideLoader = function(){
+        let loaderBackground = document.getElementById('loaderBackground');
+        loaderBackground.style.display = 'none';
+    }
+
+    const search = async function(searchTerm){        
+        showLoader();
         let results = await getSearchResults(searchTerm);
         if (results.length <= 0) {
             noResults(searchTerm);
@@ -111,14 +122,24 @@ permalink: /search/index.html
         else {
             await getResultsFromKontent(results);
         }
+        hideLoader();
     }   
     
-    let urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("s")) {
-        let searchTerm = urlParams.get("s");
-        console.log(searchTerm);
-        search(searchTerm);  
-    }
+    document.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');let urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("s")) {
+            let searchTerm = urlParams.get("s");
+            console.log(searchTerm);
+            search(searchTerm);  
+        }
+    });
+
+    
 </script>
 <div id="searchResultsContainer">
+    <div id="loaderBackground" class="loaderBackground">
+        <div class="loaderContainer">
+            <div class="loader"></div>
+        </div>
+    </div>
 </div>
