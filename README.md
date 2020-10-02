@@ -20,7 +20,7 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 - Update blog page to use the teaser image
 - Ensure images are coming through
 ## Layout
-- Need to add social media
+- ~~Need to add social media~~
 - Add favicon
 ## Navigation styling
 - highlight current page... maybe
