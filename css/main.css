@@ -120,6 +120,11 @@ nav a {
     align-items: center;
 }
 
+nav a:hover {
+    color: black;
+    background: #eeee22;
+}
+
 article {
     background-color: white;
     color: black;

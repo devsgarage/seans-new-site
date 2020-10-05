@@ -23,8 +23,8 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 - ~~Need to add social media~~
 - Add favicon
 ## Navigation styling
-- highlight current page... maybe
-- hover styling
+- ~~highlight current page... maybe~~
+- ~~hover styling~~
 ## Sourcebit Plugin
 - Get it published... RYAN
 ## Fellow Streamers Page
