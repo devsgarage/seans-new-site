@@ -7,6 +7,9 @@ pagination:
 ---
 {% for post in data.blog_post %}
   <article>
+    {% if post.teaser_image %}
+    <img src="{{post.teaser_image}}" />
+    {% endif %}
     <p class="post-title">
       <a href="/blog/{{ post.slug | url }}">{{ post.title }}</a>
     </p>

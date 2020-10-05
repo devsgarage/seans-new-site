@@ -134,6 +134,11 @@ article {
     font-size: 12px;
 }
 
+article img {
+    height: 12em;
+    margin-bottom: 1.5em;
+}
+
 .pants h2 {
     font: 24px "Pontano Sans", sans-serif;
     color: #1772af;

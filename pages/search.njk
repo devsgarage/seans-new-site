@@ -63,6 +63,14 @@ permalink: /search/index.html
         */
         let article = document.createElement('article');
 
+        //Teaser image
+        if (post.teaser_image.value) {
+            console.log(post.teaser_image.value[0].url);
+            let teaserImage = document.createElement('img');
+            teaserImage.src = post.teaser_image.value[0].url;
+            article.appendChild(teaserImage);
+        }
+
         //Title
         let titleContainer = document.createElement('p');
         let titleAnchor = document.createElement('a');        
@@ -90,7 +98,7 @@ permalink: /search/index.html
         readMoreAnchor.href = '/blog/'+ post.slug.value;
         let readMoreText = document.createTextNode('Read more');
         readMoreAnchor.appendChild(readMoreText);
-
+        
         article.appendChild(titleContainer);
         article.appendChild(timeContainer);
         article.appendChild(summaryContainer);

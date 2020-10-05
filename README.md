@@ -16,9 +16,10 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 - ~~404 - no intelligence found ~~
 - ~~Dunce cap logo (seans avatar + cap) :)~~
 ## Blog post
-- Update Kontent to have teaser field
-- Update blog page to use the teaser image
+- ~~Update Kontent to have teaser field~~
+- ~~Update blog page to use the teaser image~~
 - Ensure images are coming through
+- Set meta tags fields for social fields
 ## Layout
 - ~~Need to add social media~~
 - Add favicon
@@ -31,4 +32,7 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 - need one
 - like https://livecoders.dev/members
 
+
+
+npx ..\create-sourcebit\index.js --plugins=plugins.json
   
