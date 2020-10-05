@@ -210,3 +210,21 @@ footer {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .not_found_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3em;
+  }
+
+  .not_found_container img {
+      height: 20em;
+}
+
+.not_found_container p {
+    font-size: 2em;
+    font-weight: 900;
+}
+

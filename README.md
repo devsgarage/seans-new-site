@@ -14,7 +14,7 @@ The site is currently built with 11ty and uses Kentico Kontent as it's headless 
 ## Page not found
 - ~~need one~~
 - ~~404 - no intelligence found ~~
-- Dunce cap logo (seans avatar + cap) :)
+- ~~Dunce cap logo (seans avatar + cap) :)~~
 ## Blog post
 - Update Kontent to have teaser field
 - Update blog page to use the teaser image
