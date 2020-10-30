@@ -33,7 +33,7 @@ namespace CodeWithSeanSiteSearchFunction
                 return new OkObjectResult("");
 
             var results = searchHelper.QueryIndex<Blog>(search);
-
+            req.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return new OkObjectResult(results);
         }
     }
