@@ -64,7 +64,7 @@ permalink: /search/index.html
         let article = document.createElement('article');
 
         //Teaser image
-        if (Array.isArray(post.teaser_image.value) && !post.teaser_image.value.length) {
+        if (Array.isArray(post.teaser_image.value) && post.teaser_image.value.length > 0) {
             console.log(post.teaser_image.value[0].url);
             let teaserImage = document.createElement('img');
             teaserImage.src = post.teaser_image.value[0].url;
