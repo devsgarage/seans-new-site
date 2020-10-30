@@ -10,7 +10,12 @@ module.exports = {
     {
       module: require("c:/sandbox/sourcebit-target-eleventy"),
       options: {
-        contentModels: ["about", "blog_post", "speaking_engagement"]
+        contentModels: [
+          "about",
+          "blog_post",
+          "speaking_engagement",
+          "speaking_topic"
+        ]
       }
     }
   ]

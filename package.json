@@ -20,7 +20,7 @@
     "@kentico/sourcebit-source-kontent": "^0.3.0",
     "rxjs": "^6.6.2",
     "sourcebit": "^0.9.0",
-    "sourcebit-target-eleventy": "file:../sourcebit-target-eleventy"
+    "@developersgarage/sourcebit-target-eleventy": "^0.3.0"
   },
   "repository": {
     "type": "git",
