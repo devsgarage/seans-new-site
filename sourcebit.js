@@ -8,7 +8,7 @@ module.exports = {
       }
     },
     {
-      module: require("c:/sandbox/sourcebit-target-eleventy"),
+      module: require("@developersgarage/sourcebit-target-eleventy"),
       options: {
         contentModels: [
           "about",
