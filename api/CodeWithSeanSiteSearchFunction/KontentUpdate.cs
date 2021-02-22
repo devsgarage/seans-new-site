@@ -25,14 +25,14 @@ namespace CodeWithSeanSiteSearchFunction
 
         [FunctionName("KontentUpdateFunction")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             
             log.LogInformation("C# HTTP trigger function processed a request.");
             var body = JsonConvert.SerializeObject(
                 new {
-                    event_type = "kontent_publish", 
+                    event_type = "backend_automation", 
                     client_payload = new { 
                         unit = false, 
                         integration = true 
@@ -45,11 +45,6 @@ namespace CodeWithSeanSiteSearchFunction
             //         "integration": true
             //     }
             // }
-            var headers = new MyHeaders { 
-                Authorization = $"Bearer {configuration["GITHUB_TOKEN"]}",
-                Accept = "application/vnd.github.everest-preview+json",
-                Content_Type = "application/json"
-             };
             // const headers = {
             //     "Authorization": `Bearer ${process.env.GITHUB_TOKEN}`,     
             //     "Accept":"application/vnd.github.everest-preview+json",
@@ -59,6 +54,8 @@ namespace CodeWithSeanSiteSearchFunction
 
             httpClient.DefaultRequestHeaders.Authorization = 
                 new AuthenticationHeaderValue("Bearer", configuration["GITHUB_TOKEN"]);
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.everest-preview+json"));
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "request");
             var url = "https://api.github.com/repos/DevsGarage/seans-new-site/dispatches";
             var content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync(url, content);
@@ -71,14 +68,5 @@ namespace CodeWithSeanSiteSearchFunction
                 
             // }
         }
-    }
-
-    public class MyHeaders{
-        [JsonProperty("Authorization")]
-        public string Authorization{ get; set; }
-        [JsonProperty("Accept")]
-        public string Accept { get; set; }
-        [JsonProperty("Content-Type")]
-        public string Content_Type { get; set; }
     }
 }
