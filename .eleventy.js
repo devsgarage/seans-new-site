@@ -18,7 +18,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('css');
   eleventyConfig.addPassthroughCopy('assets');
-
+  eleventyConfig.addCollection('', function(collection){
+    return collection.getAll().sort(function(a, b) {
+      return b.date - a.date;
+    });
+  });
   eleventyConfig.setBrowserSyncConfig({
     notify: true,
     callbacks: {

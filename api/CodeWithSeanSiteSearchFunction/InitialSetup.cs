@@ -14,10 +14,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeWithSeanSiteSearchFunction
 {
-    public class Function1
+    public class InitialSetup
     {
         private readonly IConfiguration configuration;
-        public Function1(IConfiguration configuration)
+        public InitialSetup(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
@@ -50,9 +50,5 @@ namespace CodeWithSeanSiteSearchFunction
 
             return new OkObjectResult(responseMessage);
         }
-
-        //Function for updating call from Kontent webhook
-
-        //Function for actual searching
     }
 }

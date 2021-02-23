@@ -3,9 +3,10 @@ layout: base-layout.njk
 pagination:
   data: data
   size: 10
+  alias: posts
   reverse: true
 ---
-{% for post in data.blog_post %}
+{% for post in posts %}
   <article>
     {% if post.teaser_image %}
     <img src="{{post.teaser_image}}" />
