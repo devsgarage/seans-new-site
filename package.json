@@ -16,11 +16,11 @@
     "sourcebit-target-hugo": "file:../sourcebit-target-eleventy"
   },
   "dependencies": {
+    "@developersgarage/sourcebit-target-eleventy": "^0.3.0",
     "@kentico/kontent-delivery": "^9.2.0",
     "@kentico/sourcebit-source-kontent": "^0.3.0",
     "rxjs": "^6.6.2",
-    "sourcebit": "^0.9.0",
-    "@developersgarage/sourcebit-target-eleventy": "^0.3.0"
+    "sourcebit": "^0.10.0"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,8 @@ async function getAllData (){
         dataByModelType[object.__metadata.modelName] = dataByModelType[object.__metadata.modelName] || [];
         dataByModelType[object.__metadata.modelName].push(object);
     });
-
+    dataByModelType.blog_post = dataByModelType.blog_post.sort(function(a, b){return new Date(a.created_date) - new Date(b.created_date)});
+    //console.log(dataByModelType.blog_post);
     return dataByModelType;
 }
 

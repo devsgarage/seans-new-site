@@ -1,9 +1,10 @@
 ---
 layout: base-layout.njk
-pagination:
-  data: collections.sortedPosts
+pagination: 
+  data: data.blog_post
   size: 10
   alias: posts
+  before: function(d) { return d.sort(function(a, b){return new Date(a.created_date) - new Date(b.created_date)}); }
   reverse: true
 ---
 {% for post in posts %}
@@ -20,3 +21,8 @@ pagination:
     <a href="/blog/{{ post.slug | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>
   </article>
 {% endfor %}
+{% if pagination.href.previous or pagination.href.next  %}<nav class="previous_next_nav">{% endif %}
+  {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" class="previous">< Previous</a>{% else %}{% endif %}
+  {% if pagination.href.next %}<a href="{{ pagination.href.next }}" class="next">Next ></a>{% else %}{% endif %}
+{% if pagination.href.previous or pagination.href.next %}</nav>{% endif %}
+  

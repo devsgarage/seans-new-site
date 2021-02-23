@@ -238,3 +238,36 @@ footer {
     font-weight: 900;
 }
 
+.previous_next_nav{
+    background-color: white;    
+    justify-content: center;
+    align-items: center;
+}
+
+.previous {
+    display: inline-flex;
+    color: blueviolet;
+    font-size: 1em;
+    font-weight: 600;
+    width: 5em;
+}
+.previous:hover {
+    display: inline-flex;
+    color: blueviolet;
+    background-color: white;
+}
+
+.next {
+    display: inline-flex;
+    color: blue;
+    font-size: 1em;
+    font-weight: 600;
+    width: 5em;
+}
+
+.next:hover {
+    display: inline-flex;
+    color: blue;
+    background-color: white;
+}
+
